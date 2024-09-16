@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-filters
+      author: darja
+      changes:
+        - insert:
+            tableName: filter
+            columns:
+              - column:
+                  name: name
+                  value: 'My Filter 1'
+        - insert:
+            tableName: filter
+            columns:
+              - column:
+                  name: name
+                  value: 'My Filter 2'

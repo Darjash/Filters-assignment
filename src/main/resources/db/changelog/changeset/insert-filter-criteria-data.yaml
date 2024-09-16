@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-pets
+      author: Darja
+      changes:
+        - insert:
+            tableName: filter_criteria
+            columns:
+              - column:
+                  name: type
+                  value: 'Amount'
+              - column:
+                  name: description
+                  value: 'More'
+              - column:
+                  name: filter_value
+                  value: '4'
+              - column:
+                  name: filter_id
+                  valueNumeric: 1
+        - insert:
+            tableName: filter_criteria
+            columns:
+              - column:
+                  name: type
+                  value: 'Title'
+              - column:
+                  name: description
+                  value: 'Starts with'
+              - column:
+                  name: filter_value
+                  value: 'Meow'
+              - column:
+                  name: filter_id
+                  valueNumeric: 1
+        - insert:
+            tableName: filter_criteria
+            columns:
+              - column:
+                  name: type
+                  value: 'Title'
+              - column:
+                  name: description
+                  value: 'Equals'
+              - column:
+                  name: filter_value
+                  value: 'Dog'
+              - column:
+                  name: filter_id
+                  valueNumeric: 2
+        - insert:
+            tableName: filter_criteria
+            columns:
+              - column:
+                  name: type
+                  value: 'Date'
+              - column:
+                  name: description
+                  value: 'From'
+              - column:
+                  name: filter_value
+                  value: '2024-09-03'
+              - column:
+                  name: filter_id
+                  valueNumeric: 2

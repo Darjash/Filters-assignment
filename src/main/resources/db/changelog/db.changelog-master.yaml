@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-filter-table.yaml
+  - include:
+      file: db/changelog/changeset/create-filter-criteria-table.yaml
+  - include:
+      file: db/changelog/changeset/insert-filter-data.yaml
+  - include:
+      file: db/changelog/changeset/insert-filter-criteria-data.yaml

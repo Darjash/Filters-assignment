@@ -1,0 +1,59 @@
+<div [ngClass]="{'show': isOpen, 'modal': isModal, 'non-modal': !isModal}">
+  <div class="content">
+
+    <div class="header">
+      <h6>Filter</h6>
+      <button type="button" class="close-button" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="dialog-body">
+      <div class="form-group">
+        <label for="filterName">Filter name</label>
+        <input id="filterName" [(ngModel)]="filter.name" type="text" class="form-input" placeholder="Enter filter name">
+      </div>
+
+      <div class="criteria-list">
+        <div class="criteria-header">
+          <h6>Criteria</h6>
+        </div>
+
+        <div class="criteria-block">
+          <div *ngFor="let criteria of filter.criteria; let i = index" class="criteria-item">
+            <div class="input">
+              <select [(ngModel)]="criteria.type" (change)="updateDescriptionOptions(criteria)" class="form-input">
+                <option *ngFor="let option of typeOptions" [value]="option">{{ option }}</option>
+              </select>
+
+              <select [(ngModel)]="criteria.description" class="form-input">
+                <option *ngFor="let option of descriptionOptions[criteria.type]" [value]="option">{{ option }}</option>
+              </select>
+
+              <ng-container *ngIf="criteria.type === 'Date'; else normalInput">
+                <input [(ngModel)]="criteria.filterValue" type="date" class="form-input" />
+              </ng-container>
+              <ng-template #normalInput>
+                <input [(ngModel)]="criteria.filterValue" placeholder="Value" class="form-input" />
+              </ng-template>
+
+              <button *ngIf="filter.criteria.length > 1" (click)="removeCriteria(i)" class="remove-button"><span>&minus;</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-row">
+        <button (click)="addCriteria()" class="btn btn-secondary btn-sm">+ ADD ROW</button>
+      </div>
+    </div>
+
+    <div class="footer">
+      <button type="button" class="btn btn-secondary btn-sm" (click)="closeModal()">Close</button>
+      <button type="button" class="btn btn-primary btn-sm" (click)="saveFilter()">Save</button>
+      <div *ngIf="errorMessage" class="error-message">
+        <b>{{ errorMessage }}</b>
+      </div>
+    </div>
+  </div>
+</div>

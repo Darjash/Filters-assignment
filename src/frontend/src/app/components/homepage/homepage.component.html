@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="add-filter">
+    <button (click)="openFilterModal()" type="button" class="btn btn-outline-secondary">Add Filter</button>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" (click)="changeModalState()">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Non-modal mode</label>
+    </div>
+  </div>
+
+  <app-filter-dialog [isOpen]="isModalOpen" [isModal]="isModalState" (close)="closeModal()" (callLoadFilters)="loadFilters()"></app-filter-dialog>
+
+  <div class="table-container">
+    <p>Saved Filters:</p></div>
+    <div class="mt-4">
+      <table *ngIf="filters" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Criteria</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let filter of filters">
+            <td>{{ filter.name }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let criteria of filter.criteria">
+                  {{ criteria.type }} - {{ criteria.description }} - {{ criteria.filterValue }}
+                </li>
+              </ul>
+            </td>
+            <td><button (click)="deleteFilter(filter.id!)" type="button" class="btn btn-outline-danger" (click)="closeModal()" style="width: auto;">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
