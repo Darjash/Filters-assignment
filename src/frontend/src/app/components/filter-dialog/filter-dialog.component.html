@@ -30,11 +30,16 @@
                 <option *ngFor="let option of descriptionOptions[criteria.type]" [value]="option">{{ option }}</option>
               </select>
 
-              <ng-container *ngIf="criteria.type === 'Date'; else normalInput">
+              <ng-container *ngIf="criteria.type === 'Date'; else numberInput">
                 <input [(ngModel)]="criteria.filterValue" type="date" class="form-input" />
               </ng-container>
-              <ng-template #normalInput>
-                <input [(ngModel)]="criteria.filterValue" placeholder="Value" class="form-input" />
+              <ng-template #numberInput>
+                <ng-container *ngIf="criteria.type === 'Amount'; else textInput">
+                  <input [(ngModel)]="criteria.filterValue" type="number" placeholder="Enter number" class="form-input" />
+                </ng-container>
+                <ng-template #textInput>
+                  <input [(ngModel)]="criteria.filterValue" placeholder="Enter value" class="form-input" />
+                </ng-template>
               </ng-template>
 
               <button *ngIf="filter.criteria.length > 1" (click)="removeCriteria(i)" class="remove-button"><span>&minus;</span></button>
