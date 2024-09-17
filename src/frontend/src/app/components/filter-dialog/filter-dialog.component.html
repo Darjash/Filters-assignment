@@ -11,7 +11,7 @@
     <div class="dialog-body">
       <div class="form-group">
         <label for="filterName">Filter name</label>
-        <input id="filterName" [(ngModel)]="filter.name" type="text" class="form-input" placeholder="Enter filter name">
+        <input id="filterName" [(ngModel)]="filter.name" (blur)="filter.name = filter.name.trim() ? filter.name.charAt(0).toUpperCase() + filter.name.slice(1) : ''" type="text" class="form-input" placeholder="Enter filter name">
       </div>
 
       <div class="criteria-list">

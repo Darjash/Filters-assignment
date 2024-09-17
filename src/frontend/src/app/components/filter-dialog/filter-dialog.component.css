@@ -5,7 +5,8 @@
 .modal.show {
   display: flex;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-x: auto;
 }
 
 .non-modal {
@@ -14,8 +15,7 @@
 
 .non-modal.show {
   display: flex;
-  justify-content: left; 
-  width: 850px;
+  justify-content: left;
   margin-top: 20px;
   background-color: white;
 }
@@ -26,6 +26,7 @@
   margin: auto;
   height: 300px;
   width: 850px;
+  min-width: 850px;
   min-height: 250px;
   overflow-y: auto;
   resize: vertical;
