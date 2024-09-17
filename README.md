@@ -52,6 +52,10 @@ Both scripts perform the following steps:
     - **Angular CLI Version**: 18.2.3
     - **IntelliJ IDEA**
 
+## If you encounter any issues running this application, solution can also be found in the separate repositories for the frontend and backend components:
+- Backend Repository: [Filter-Assignment_BackEnd](https://github.com/Darjash/Filter-Assignment_BackEnd)
+- Frontend Repository: [Filter-Assignment_FrontEnd](https://github.com/Darjash/Filter-Assignment_FrontEnd)
+
 ## Taks
 
 Create an application which has a button to create new filter and representation of already created filters.
